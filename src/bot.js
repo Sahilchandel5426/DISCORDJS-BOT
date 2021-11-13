@@ -23,9 +23,13 @@ const message = await channel.messages.fetch('908717631018778674');
 });
 
 
+
 client.on('messageCreate', async (message) => {
     if (message.author.bot) return;
     console.log(`[${message.author.tag}]: ${message.content}`);
+    if (message.content === 'hello') {
+        message.reply('hello there!');
+    }
     if (message.content.startsWith(PREFIX)) {
         const [CMD_NAME, ...args] = message.content
             .trim()
